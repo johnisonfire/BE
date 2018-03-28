@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0315DF3D206AB9BB00412AB9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315DF3C206AB9BB00412AB9 /* SignUpViewController.swift */; };
+		0315DF3F206ABA7400412AB9 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0315DF3E206ABA7400412AB9 /* left-arrow.png */; };
+		036A65B9206BF7C50018D151 /* web-page-home.png in Resources */ = {isa = PBXBuildFile; fileRef = 036A65B8206BF7C40018D151 /* web-page-home.png */; };
+		036A65BB206BF92C0018D151 /* plus-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 036A65BA206BF92C0018D151 /* plus-button.png */; };
+		036A65BD206BF98B0018D151 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 036A65BC206BF98A0018D151 /* icon.png */; };
+		036A65BF206BFB5A0018D151 /* tabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A65BE206BFB5A0018D151 /* tabViewController.swift */; };
+		036A65C2206BFF120018D151 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A65C1206BFF120018D151 /* HomeViewController.swift */; };
+		036A65C4206BFF240018D151 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A65C3206BFF240018D151 /* AddBookViewController.swift */; };
+		036A65C6206BFF350018D151 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A65C5206BFF350018D151 /* ProfileViewController.swift */; };
+		036A65C8206C003B0018D151 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 036A65C7206C003B0018D151 /* logout.png */; };
 		522388082066F68D00008F6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522388072066F68D00008F6B /* AppDelegate.swift */; };
 		5223880A2066F68D00008F6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522388092066F68D00008F6B /* ViewController.swift */; };
 		5223880D2066F68D00008F6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5223880B2066F68D00008F6B /* Main.storyboard */; };
@@ -15,6 +25,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0315DF3C206AB9BB00412AB9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0315DF3E206ABA7400412AB9 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
+		036A65B8206BF7C40018D151 /* web-page-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-page-home.png"; sourceTree = "<group>"; };
+		036A65BA206BF92C0018D151 /* plus-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-button.png"; sourceTree = "<group>"; };
+		036A65BC206BF98A0018D151 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		036A65BE206BFB5A0018D151 /* tabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabViewController.swift; sourceTree = "<group>"; };
+		036A65C1206BFF120018D151 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		036A65C3206BFF240018D151 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
+		036A65C5206BFF350018D151 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		036A65C7206C003B0018D151 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 		522388042066F68D00008F6B /* BookExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		522388072066F68D00008F6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		522388092066F68D00008F6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +55,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036A65C0206BFE8B0018D151 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				522388072066F68D00008F6B /* AppDelegate.swift */,
+				522388092066F68D00008F6B /* ViewController.swift */,
+				0315DF3C206AB9BB00412AB9 /* SignUpViewController.swift */,
+				036A65BE206BFB5A0018D151 /* tabViewController.swift */,
+				036A65C1206BFF120018D151 /* HomeViewController.swift */,
+				036A65C3206BFF240018D151 /* AddBookViewController.swift */,
+				036A65C5206BFF350018D151 /* ProfileViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		522387FB2066F68D00008F6B = {
 			isa = PBXGroup;
 			children = (
@@ -54,11 +88,15 @@
 		522388062066F68D00008F6B /* BookExchange */ = {
 			isa = PBXGroup;
 			children = (
-				522388072066F68D00008F6B /* AppDelegate.swift */,
-				522388092066F68D00008F6B /* ViewController.swift */,
+				036A65C0206BFE8B0018D151 /* ViewController */,
 				5223880B2066F68D00008F6B /* Main.storyboard */,
 				5223880E2066F68D00008F6B /* Assets.xcassets */,
 				522388102066F68D00008F6B /* LaunchScreen.storyboard */,
+				0315DF3E206ABA7400412AB9 /* left-arrow.png */,
+				036A65BC206BF98A0018D151 /* icon.png */,
+				036A65B8206BF7C40018D151 /* web-page-home.png */,
+				036A65BA206BF92C0018D151 /* plus-button.png */,
+				036A65C7206C003B0018D151 /* logout.png */,
 				522388132066F68D00008F6B /* Info.plist */,
 			);
 			path = BookExchange;
@@ -123,9 +161,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				036A65B9206BF7C50018D151 /* web-page-home.png in Resources */,
+				036A65BD206BF98B0018D151 /* icon.png in Resources */,
+				0315DF3F206ABA7400412AB9 /* left-arrow.png in Resources */,
 				522388122066F68D00008F6B /* LaunchScreen.storyboard in Resources */,
+				036A65BB206BF92C0018D151 /* plus-button.png in Resources */,
 				5223880F2066F68D00008F6B /* Assets.xcassets in Resources */,
 				5223880D2066F68D00008F6B /* Main.storyboard in Resources */,
+				036A65C8206C003B0018D151 /* logout.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				036A65C2206BFF120018D151 /* HomeViewController.swift in Sources */,
+				036A65C4206BFF240018D151 /* AddBookViewController.swift in Sources */,
+				036A65BF206BFB5A0018D151 /* tabViewController.swift in Sources */,
+				0315DF3D206AB9BB00412AB9 /* SignUpViewController.swift in Sources */,
+				036A65C6206BFF350018D151 /* ProfileViewController.swift in Sources */,
 				5223880A2066F68D00008F6B /* ViewController.swift in Sources */,
 				522388082066F68D00008F6B /* AppDelegate.swift in Sources */,
 			);

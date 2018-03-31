@@ -28,19 +28,19 @@ enum ErrorCode: Int {
     func localizedDescription() -> String{
         switch self{
         case .noError:
-            return "ErrorCode.NoError"
+            return "ErrorCode.NoError".localized
         case .invalidCredentials:
-            return "ErrorCode.InvalidCredentials"
+            return "ErrorCode.InvalidCredentials".localized
         case .userNotVerified:
-            return "ErrorCode.UserNotVerified"
+            return "ErrorCode.UserNotVerified".localized
         case .userBlocked:
-            return "ErrorCode.UserBlocked"
+            return "ErrorCode.UserBlocked".localized
         case .noDataReceived:
-            return "ErrorCode.NoDataReceived"
+            return "ErrorCode.NoDataReceived".localized
         case .networkUnavailable:
-            return "ErrorCode.NetworkUnavailable"
+            return "ErrorCode.NetworkUnavailable".localized
         case .unknownError:
-            return "ErrorCode.UnknownError"
+            return "ErrorCode.UnknownError".localized
         }
     }
 }
@@ -52,6 +52,10 @@ enum HttpResponseStatusCode: Int {
 }
 
 extension NSError{
+    /**
+     Initializer for NSError for a specified ErrorCode
+     - parameter errorCode: The ErrorCode for which NSError needs to be generated
+     */
     convenience init(errorCode: ErrorCode){
         self.init(domain: "LaundyApp", code: errorCode.rawValue, userInfo: [NSLocalizedDescriptionKey : errorCode.localizedDescription()])
     }
@@ -59,10 +63,13 @@ extension NSError{
 
 
 protocol HTTPProtocol: NSObjectProtocol {
-
+//    func executeWebService(method: HTTPMethod, URLString: String, parameters: [String: AnyObject]?, encoding: Alamofire.ParameterEncoding, headers: [String: String]?, completion: (_ response:AnyObject?, _ error: NSError?) -> ())
+//    func multipartWebService(method: HTTPMethod, URLString: String, parameters: [String: AnyObject]?, fileData: Data?, fileUrl:URL?, headers: [String: String]?, completion: (_ response:AnyObject?, _ error: NSError?) -> ());
+    
 }
 
 extension HTTPProtocol {
+    
     
     func executeWebService(method: HTTPMethod, URLString: String, parameters: [String: AnyObject]?, encoding: Alamofire.ParameterEncoding, headers: [String: String]?, completion: @escaping (_ response:AnyObject?, _ error: NSError?) -> ()){
         print("Fetching WS : \(URLString)")
@@ -84,7 +91,7 @@ extension HTTPProtocol {
                 if let error = response.result.error {
                     
                     let dataString = String(data: response.data!,encoding: String.Encoding.utf8)
-                    //print("Datastring is :- \(dataString)")
+                    print("Datastring is :- \(dataString)")
                     completion(nil, error as NSError?)
                 }
                 else {
@@ -112,6 +119,9 @@ extension HTTPProtocol {
     }
     
     func multipartWebService(method: HTTPMethod, URLString: String, parameters: [String: AnyObject]?, fileData: Data?,fileUrl:URL?, headers: [String: String]?, completion: @escaping (_ response:AnyObject?, _ error: NSError?) -> ()){
+        print("Fetching WS : \(URLString)")
+        print("With parameters : \(parameters)")
+        
         if  !NetworkReachabilityManager()!.isReachable {
             completion(nil, NSError(errorCode: ErrorCode.networkUnavailable))
         }
@@ -171,10 +181,17 @@ extension HTTPProtocol {
                     
                 }
         }
+        
+        
+        
+        
+
     }
     
     func multipartWebServiceForVideo(method: HTTPMethod, URLString: String, parameters: [String: AnyObject]?, fileData: Data?,fileUrl:URL?, headers: [String: String]?, completion: @escaping (_ response:AnyObject?, _ error: NSError?) -> ()){
-    
+        print("Fetching WS : \(URLString)")
+        print("With parameters : \(parameters)")
+        
         if  !NetworkReachabilityManager()!.isReachable {
             completion(nil, NSError(errorCode: ErrorCode.networkUnavailable))
         }
@@ -229,7 +246,6 @@ extension HTTPProtocol {
     
     
 }
-
 
 
 

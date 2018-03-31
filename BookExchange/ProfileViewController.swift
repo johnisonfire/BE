@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        (self.tabBarController! as? tabViewController)?.configertabbar(Title: "Profile", type: 2)
+      //  (self.tabBarController! as? tabViewController)?.configertabbar(Title: "Profile", type: 2)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,6 +35,32 @@ class ProfileViewController: UIViewController {
     */
 
     @IBAction func logout(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        guard let button = sender as? UIView else {
+            return
+        }
+        let alertController = UIAlertController.init(title: "", message: "Logout Confirmation", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let actionNo = UIAlertAction.init(title: "NO".localized, style: UIAlertActionStyle.cancel) { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        let actionYes = UIAlertAction.init(title: "YES".localized, style: UIAlertActionStyle.default) { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+            let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            appdelegate.setLoginStatus(LoggedInStatus.LoggedOut)
+            let userStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let homeViewController = userStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
+            appdelegate.setRootViewController(homeViewController)
+        }
+        alertController.addAction(actionNo);
+        alertController.addAction(actionYes);
+        if let presenter = alertController.popoverPresentationController {
+            presenter.sourceView = button
+            presenter.sourceRect = button.bounds
+        }
+        self.present(alertController, animated: true, completion: nil)
+        
+        
+        
+        
     }
 }

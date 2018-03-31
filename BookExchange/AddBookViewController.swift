@@ -16,7 +16,7 @@ class AddBookViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        (self.tabBarController! as? tabViewController)?.configertabbar(Title: "Add Book", type: 1)
+     //   (self.tabBarController! as? tabViewController)?.configertabbar(Title: "Add Book", type: 1)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

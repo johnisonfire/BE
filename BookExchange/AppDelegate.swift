@@ -12,10 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let merchantStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         // Override point for customization after application launch.
+        switch getLoginStatus() {
+        case .UserLoggedIn :
+            let homeViewController = merchantStoryboard.instantiateViewController(withIdentifier: "tabViewController")
+            self.setRootViewController(homeViewController)
+        case .LoggedOut:
+           
+            let loginViewController = merchantStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
+                self.setRootViewController(loginViewController)
+    }
+
         return true
     }
 
@@ -40,7 +49,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    // Changing RootViewController of Application Window
+    func setRootViewController(_ rootViewController: UIViewController) ->Void{
+        self.window?.rootViewController = rootViewController
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func setLoginStatus(_ status:LoggedInStatus) ->Void{
+        let defaults = UserDefaults.standard
+        defaults.setValue(status.rawValue, forKey: "LoginStatus")
+        defaults.synchronize()
+    }
+    func getLoginStatus() ->LoggedInStatus {
+        let defaults = UserDefaults.standard
+        if let returnValue: String = defaults.value(forKey: "LoginStatus") as? String{
+            return LoggedInStatus(rawValue: returnValue)!
+        }
+        return .LoggedOut
+    }
 
 }
 

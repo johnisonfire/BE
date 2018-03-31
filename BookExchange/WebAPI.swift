@@ -11,8 +11,10 @@ class ABC{
     let XYZ = "1"
 }
 struct WebAPI {
-    static let BaseUrl: String =  "http://192.168.22.22/php-api/"
-    static let MerchantLoginURL: String = "\(BaseUrl)\("login")"
+    static let BaseUrl: String =  "http://boutinvm.eastus.cloudapp.azure.com/Distribute.svc/"
+    static let LoginUrl: String = "\(BaseUrl)\("Authenticate")"
+    static let SingUpUrl: String = "\(BaseUrl)\("NewUser")"
+    static let NewListing: String = "\(BaseUrl)\("NewListing")"
     
 }
 

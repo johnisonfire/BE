@@ -12,8 +12,7 @@ class tabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.tabBar.tintColor = UIColor.black
-        self.navigationController?.navigationBar.isHidden = false
+       self.configureTabBar()
         
               // Do any additional setup after loading the view.
     }
@@ -23,10 +22,20 @@ class tabViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    func configertabbar(Title:String,type:Int) {
-      self.title = Title
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+     func configureTabBar(){
+//        tabBar.backgroundColor = UIColor.black
+//        tabBar.items![0].imageInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+//        tabBar.items![0].titlePositionAdjustment = UIOffsetMake(0, 0)
+//        tabBar.items![0].image = UIImage(named: "house.png")
+//        tabBar.items![0].selectedImage = UIImage(named: "houseSelect.png")
+//        tabBar.items![1].imageInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+//        tabBar.items![1].titlePositionAdjustment = UIOffsetMake(0, 0)
+//        tabBar.items![1].image = UIImage(named: "plus.png")
+//        tabBar.items![1].selectedImage = UIImage(named: "plusselected.png")
+//        tabBar.items![2].imageInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+//        tabBar.items![2].titlePositionAdjustment = UIOffsetMake(0, 0)
+//        tabBar.items![2].image = UIImage(named: "user.png")
+//        tabBar.items![2].selectedImage = UIImage(named: "userselected.png")
     }
     /*
     // MARK: - Navigation

@@ -45,6 +45,8 @@ class ProfileViewController: UIViewController {
         }
         let actionYes = UIAlertAction.init(title: "YES".localized, style: UIAlertActionStyle.default) { (action) in
             alertController.dismiss(animated: true, completion: nil)
+            let defaults = UserDefaults.standard
+            defaults.removeObject(forKey: "UserDeail")
             let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
             appdelegate.setLoginStatus(LoggedInStatus.LoggedOut)
             let userStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)

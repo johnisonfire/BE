@@ -49,11 +49,13 @@ class ViewController: UIViewController {
             if let err = error {
                 Toast.makeText(err.localizedDescription).show()
             }else{
-               
-                if (response as? String) != nil
+                if let responseObject = (convertToDictionary(text: (response as? String)!))! as? [String : AnyObject] {
+                if Int(responseObject["Status"]! as! String) == 1
                 {
                     let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
                     appdelegate.setLoginStatus(LoggedInStatus.UserLoggedIn)
+                    let defaults = UserDefaults.standard
+                    defaults.set(responseObject["UserId"]! as! String, forKey: "UserDeail")
                     let userStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let homeViewController = userStoryboard.instantiateViewController(withIdentifier: "LoginTabbar")
                     appdelegate.setRootViewController(homeViewController)
@@ -61,9 +63,18 @@ class ViewController: UIViewController {
                 else{
                     Toast.makeText(self.msgServerError).show()
                 }
-                
+                }
             }
         }
     }
 }
-
+func convertToDictionary(text: String) -> [String: Any]? {
+    if let data = text.data(using: .utf8) {
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    return nil
+}

@@ -36,6 +36,9 @@ class ProfileViewController: UIViewController {
 
     @IBAction func logout(_ sender: Any) {
         
+       
+    }
+     @IBAction func Save(_ sender: Any) {
         guard let button = sender as? UIView else {
             return
         }
@@ -60,9 +63,5 @@ class ProfileViewController: UIViewController {
             presenter.sourceRect = button.bounds
         }
         self.present(alertController, animated: true, completion: nil)
-        
-        
-        
-        
     }
 }

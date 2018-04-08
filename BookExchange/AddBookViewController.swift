@@ -7,12 +7,22 @@
 //
 
 import UIKit
+class imagecell : UICollectionViewCell
+{
+    @IBOutlet weak var imagee: UIImageView!
+}
+class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
-class AddBookViewController: UIViewController {
-
+    @IBOutlet weak var txt_title: UITextField!
+    @IBOutlet weak var btnPost: UIButton!
+    @IBOutlet weak var txtISBN: UITextField!
+    @IBOutlet weak var txtAuther: UITextField!
+    @IBOutlet weak var txtPrice: UITextField!
+    @IBOutlet weak var collectionSelectImage: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+   
+    
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -33,5 +43,23 @@ class AddBookViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath)
+        
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width:collectionView.frame.size.height-5,height:collectionView.frame.size.height-5)
+    }
+    @IBAction func btnPost(_ sender: Any) {
+    }
 }

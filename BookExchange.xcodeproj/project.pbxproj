@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0315DF3D206AB9BB00412AB9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315DF3C206AB9BB00412AB9 /* SignUpViewController.swift */; };
 		0315DF3F206ABA7400412AB9 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0315DF3E206ABA7400412AB9 /* left-arrow.png */; };
+		033430C42079E9E7008BF8CA /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033430C32079E9E7008BF8CA /* BorderedButton.swift */; };
+		033430C62079EB98008BF8CA /* user (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 033430C52079EB97008BF8CA /* user (2).png */; };
+		033430C82079F365008BF8CA /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 033430C72079F364008BF8CA /* add.png */; };
 		0358C501206FA93A007A2BC2 /* UserLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358C500206FA93A007A2BC2 /* UserLoginService.swift */; };
 		0358C503206FABE6007A2BC2 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358C502206FABE5007A2BC2 /* ActivityView.swift */; };
 		0358C505206FAC0F007A2BC2 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358C504206FAC0F007A2BC2 /* Toast.swift */; };
@@ -55,6 +58,9 @@
 /* Begin PBXFileReference section */
 		0315DF3C206AB9BB00412AB9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0315DF3E206ABA7400412AB9 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
+		033430C32079E9E7008BF8CA /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		033430C52079EB97008BF8CA /* user (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user (2).png"; sourceTree = "<group>"; };
+		033430C72079F364008BF8CA /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		0358C500206FA93A007A2BC2 /* UserLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginService.swift; sourceTree = "<group>"; };
 		0358C502206FABE5007A2BC2 /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		0358C504206FAC0F007A2BC2 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 		0361C618206E9811001E928E /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				033430C32079E9E7008BF8CA /* BorderedButton.swift */,
 				0358C502206FABE5007A2BC2 /* ActivityView.swift */,
 			);
 			name = Modal;
@@ -311,6 +318,8 @@
 				0358C51A206FEC0E007A2BC2 /* Search.png */,
 				0358C51C206FED3A007A2BC2 /* filter.png */,
 				0358C518206FCF44007A2BC2 /* logout (1).png */,
+				033430C52079EB97008BF8CA /* user (2).png */,
+				033430C72079F364008BF8CA /* add.png */,
 				522388132066F68D00008F6B /* Info.plist */,
 			);
 			path = BookExchange;
@@ -398,6 +407,8 @@
 				036A65B9206BF7C50018D151 /* web-page-home.png in Resources */,
 				036A65BD206BF98B0018D151 /* icon.png in Resources */,
 				0358C521206FEEFC007A2BC2 /* ListCollectionViewCell.xib in Resources */,
+				033430C82079F365008BF8CA /* add.png in Resources */,
+				033430C62079EB98008BF8CA /* user (2).png in Resources */,
 				0358C519206FCF45007A2BC2 /* logout (1).png in Resources */,
 				0315DF3F206ABA7400412AB9 /* left-arrow.png in Resources */,
 				522388122066F68D00008F6B /* LaunchScreen.storyboard in Resources */,
@@ -498,6 +509,7 @@
 				0358C558206FF7CC007A2BC2 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				0315DF3D206AB9BB00412AB9 /* SignUpViewController.swift in Sources */,
 				036A65C6206BFF350018D151 /* ProfileViewController.swift in Sources */,
+				033430C42079E9E7008BF8CA /* BorderedButton.swift in Sources */,
 				0358C508206FAD59007A2BC2 /* ToastView.swift in Sources */,
 				0358C520206FEEFC007A2BC2 /* ListCollectionViewCell.swift in Sources */,
 				5223880A2066F68D00008F6B /* ViewController.swift in Sources */,

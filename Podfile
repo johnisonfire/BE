@@ -9,7 +9,6 @@ target 'BookExchange' do
     pod 'ObjectMapper'
     pod 'SDWebImage'
     pod 'SDWebImage'
-    pod 'BSImagePicker'
   # Pods for BookExchange
 
 end

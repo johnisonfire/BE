@@ -97,9 +97,9 @@ let msgServerError = NSLocalizedString("Server_Error", comment: "Identifies serv
                 Toast.makeText(err.localizedDescription).show()
             }else{
                 //print(response)
-                
-                if let responseObject = (convertToDictionary(text: (response as? String)!))! as? [String : AnyObject] {
-                        Toast.makeText(responseObject["Error"]! as! String).show()
+                if (response as? String)!.lowercased().range(of:"{") != nil {
+                    let responseObject = (convertToDictionary(text: (response as? String)!))!
+                    Toast.makeText(responseObject["Error"]! as! String).show()
                 }else if let responseObject = response as? String
                 {
                     let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate

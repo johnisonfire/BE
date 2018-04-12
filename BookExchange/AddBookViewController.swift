@@ -9,9 +9,10 @@
 import UIKit
 import Photos
 import BSImagePicker
-class imagecell : UICollectionViewCell
+class customecell : UICollectionViewCell
 {
-    @IBOutlet weak var imagee: UIImageView!
+    
+    @IBOutlet weak var customimage: UIImageView!
 }
 class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
@@ -63,16 +64,16 @@ class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Imagecell", for: indexPath) as! imagecell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customecell", for: indexPath) as! customecell
         if !imagearry.isEmpty
         {
             if  indexPath.row <= self.imagearry.count - 1
             {
                 let image =  self.imagearry[indexPath.row]
-                cell.imagee.image = (image as! UIImage)
+                cell.customimage.image = (image as! UIImage)
             }else
             {
-                cell.imagee.image = UIImage.init(named: "add.png")
+                cell.customimage.image = UIImage.init(named: "add.png")
             }
         }
         return cell

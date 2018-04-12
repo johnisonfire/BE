@@ -328,26 +328,26 @@
                                     <inset key="sectionInset" minX="1" minY="1" maxX="1" maxY="1"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imagecell" id="JUa-yL-mPz" customClass="imagecell" customModule="BookExchange" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="customecell" id="JUa-yL-mPz" customClass="customecell" customModule="BookExchange" customModuleProvider="target">
                                         <rect key="frame" x="1" y="0.0" width="81" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="81" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add.png" translatesAutoresizingMaskIntoConstraints="NO" id="asW-5S-byX">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add.png" translatesAutoresizingMaskIntoConstraints="NO" id="nwd-jr-wXD">
                                                     <rect key="frame" x="0.0" y="0.0" width="81" height="80"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="asW-5S-byX" firstAttribute="leading" secondItem="JUa-yL-mPz" secondAttribute="leading" id="1pl-kO-Dom"/>
-                                            <constraint firstAttribute="trailing" secondItem="asW-5S-byX" secondAttribute="trailing" id="AoR-Or-Xsk"/>
-                                            <constraint firstAttribute="bottom" secondItem="asW-5S-byX" secondAttribute="bottom" id="di8-tK-hLy"/>
-                                            <constraint firstItem="asW-5S-byX" firstAttribute="top" secondItem="JUa-yL-mPz" secondAttribute="top" id="vvk-cO-8Jg"/>
+                                            <constraint firstItem="nwd-jr-wXD" firstAttribute="leading" secondItem="JUa-yL-mPz" secondAttribute="leading" id="DeD-ts-vsG"/>
+                                            <constraint firstAttribute="bottom" secondItem="nwd-jr-wXD" secondAttribute="bottom" id="ERu-el-td6"/>
+                                            <constraint firstItem="nwd-jr-wXD" firstAttribute="top" secondItem="JUa-yL-mPz" secondAttribute="top" id="QoL-uM-dJg"/>
+                                            <constraint firstAttribute="trailing" secondItem="nwd-jr-wXD" secondAttribute="trailing" id="etm-Hf-528"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imagee" destination="asW-5S-byX" id="47P-Ss-iqq"/>
+                                            <outlet property="customimage" destination="nwd-jr-wXD" id="ah7-Ma-DoQ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

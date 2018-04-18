@@ -9,7 +9,11 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+ let msgServerError = NSLocalizedString("Server_Error", comment: "Identifies server error")
+    @IBOutlet weak var txtFirstName: UITextField!
+    @IBOutlet weak var txtLastName: UITextField!
+    @IBOutlet weak var txtPhoneNumber: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +39,32 @@ class ProfileViewController: UIViewController {
     */
 
     @IBAction func logout(_ sender: Any) {
+        if txtFirstName.text == ""
+        {
+        Toast.makeText("Enter First Name").show()
+         return
+        }else if txtLastName.text == ""
+        {
+            Toast.makeText("Enter Last Name").show()
+         return
+        }else if txtEmail.text == ""
+        {
+            Toast.makeText("Enter Email Name").show()
+          return
+        }
+        else if !isValidEmail(testStr: txtEmail.text!)
+        {
+            Toast.makeText("Enter Valid Email").show()
+          return
+        }
+        else if txtPhoneNumber.text == ""
+        {
+           Toast.makeText("Enter Phone Number").show()
+         return
+        }else
+        {
+          self.profileupdateApi()
+        }
         
        
     }
@@ -63,5 +93,58 @@ class ProfileViewController: UIViewController {
             presenter.sourceRect = button.bounds
         }
         self.present(alertController, animated: true, completion: nil)
+    }
+    func profileupdateApi() {
+        ActivityView.showActivityIndicator()
+        let defaults = UserDefaults.standard
+        let userid = defaults.value(forKey: "UserDeail")
+        UserLoginService().ProfileEdit(userName: userid as! String, FirstName: txtFirstName.text!, LastName: txtLastName.text!, password: "qwerty123", PhoneNumber: txtPhoneNumber.text!, EmailAddress: txtEmail.text!) { (response, error) -> () in
+            ActivityView.hideActivityIndicator()
+            if let err = error {
+                Toast.makeText(err.localizedDescription).show()
+            }else{
+                //print(response)
+                if let responseObject = (self.convertToDictionary(text: (response as? String)!))! as? [String : Any]
+                {
+                    if Int(responseObject["Status"]! as! String) == 1
+                    {
+                     self.txtFirstName.text = ""
+                        self.txtLastName.text = ""
+                        self.txtPhoneNumber.text = ""
+                        self.txtEmail.text = ""
+                        let alertController = UIAlertController(title: "Alert", message: "Profile Update Sucessfully!", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                        {
+                            (result : UIAlertAction) -> Void in
+                         
+                        }
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    else{
+                        Toast.makeText(self.msgServerError).show()
+                    }
+                }
+                
+            }
+        }
+    }
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
     }
 }

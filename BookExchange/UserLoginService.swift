@@ -29,6 +29,12 @@ class UserLoginService: NSObject, HTTPProtocol {
         print(bodyParams)
         executeWebService(method: .post, URLString: WebAPI.SingUpUrl, parameters: bodyParams as [String : AnyObject]?, encoding: JSONEncoding.default, headers: nil, completion: completion)
     }
+    func ProfileEdit(userName: String, FirstName: String, LastName: String , password: String, PhoneNumber: String, EmailAddress: String, completion:  @escaping (_ response:AnyObject?, _ error: NSError?) -> ()) ->Void {
+        let bodyParams = ["UIdToChange":userName,"FirstName":FirstName,"LastName" : LastName, "PasswordHash":password, "PhoneNumber":PhoneNumber, "EmailAddress":EmailAddress]
+        print(WebAPI.SingUpUrl)
+        print(bodyParams)
+        executeWebService(method: .post, URLString: WebAPI.UpdateProfile, parameters: bodyParams as [String : AnyObject]?, encoding: JSONEncoding.default, headers: nil, completion: completion)
+    }
     
 }
 

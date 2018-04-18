@@ -15,6 +15,7 @@ struct WebAPI {
     static let LoginUrl: String = "\(BaseUrl)\("Authenticate")"
     static let SingUpUrl: String = "\(BaseUrl)\("NewUser")"
     static let NewListing: String = "\(BaseUrl)\("NewListing")"
+     static let UpdateProfile: String = "\(BaseUrl)\("UpdateProfile")"
     
 }
 

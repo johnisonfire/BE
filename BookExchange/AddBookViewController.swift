@@ -16,13 +16,39 @@ class customecell : UICollectionViewCell
 }
 class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
+//    "UserId" : 1,
+//
+//    "Name" : "Gears of Development2",
+//
+//    "ISBN" : "3254862897YU2",
+//
+//    "Image" : "An image goes here2",
+//
+//    "Author" : "Marcus Python2",
+//
+//    "Publisher" : "GenVieve",
+//
+//    "Edition" : "Second",
+//
+//    "ListPrice" : 75,
+//
+//    "Negotiable" : 1,
+//
+//    "Description" : "A newER development in programming.",
+//
+//    "Condition" : "new"
+    let msgServerError = NSLocalizedString("Server_Error", comment: "Identifies server error")
+     @IBOutlet weak var btnPost: UIButton!
     @IBOutlet weak var txt_title: UITextField!
-    @IBOutlet weak var btnPost: UIButton!
     @IBOutlet weak var txtISBN: UITextField!
     @IBOutlet weak var txtAuther: UITextField!
     @IBOutlet weak var txtPrice: UITextField!
+    @IBOutlet var txtPublisher: UITextField!
+    @IBOutlet var Edition: UITextField!
+    @IBOutlet var txtNegotiable: UITextField!
     @IBOutlet weak var collectionSelectImage: UICollectionView!
-    
+    @IBOutlet var txtDescription: UITextField!
+    @IBOutlet var txtCondition: UITextField!
     var imagearry : [AnyObject] = []
     var arrPhotos = NSMutableArray()
     override func viewDidLoad() {
@@ -139,23 +165,61 @@ class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollec
     }
     
     @IBAction func btnPost(_ sender: Any) {
+        var strGallaryImages = ""
         if imagearry.count > 0{
             for i in 0...self.imagearry.count - 1 {
-                
                 let Gimage  = (self.imagearry[i] as! UIImage)
-                //Compress Image
-                //                let newsize = CGSize(width:100.0, height:100.0)
-                //                UIGraphicsBeginImageContext(newsize)
-                //                Gimage.draw(in: CGRect(x:0, y:0, width: 100.0,height:100.0))
-                //                let GNewImage = UIGraphicsGetImageFromCurrentImageContext()!
-                //                UIGraphicsEndImageContext()
                 let imageData = UIImagePNGRepresentation(Gimage)!
                 let dataStr = imageData.base64EncodedString(options: .endLineWithLineFeed) as String
                 arrPhotos.add(dataStr)
                 print(dataStr)
             }
-            let strGallaryImages = self.arrPhotos.componentsJoined(by: ",")
-            print(strGallaryImages)
+            strGallaryImages = self.arrPhotos.componentsJoined(by: ",")
+        }else
+        {
+            strGallaryImages = ""
+        }
+        if txt_title.text == ""
+        {
+          Toast.makeText("Enter Title").show()
+            return
+        }else if txtPublisher.text == ""
+        {
+            Toast.makeText("Enter Publisher").show()
+            return
+        }
+        else if txtAuther.text == ""
+        {
+            Toast.makeText("Enter Auther").show()
+            return
+        }
+        else if txtPrice.text == ""
+        {
+            Toast.makeText("Enter Price").show()
+            return
+        }
+        else if txtNegotiable.text == ""
+        {
+            Toast.makeText("Enter Negotiable").show()
+            return
+        }
+        else if Edition.text == ""
+        {
+            Toast.makeText("Enter Edition").show()
+            return
+        }
+        else if txtNegotiable.text == ""
+        {
+            Toast.makeText("Enter Negotiable").show()
+            return
+        }
+        else if txtCondition.text == ""
+        {
+            Toast.makeText("Enter Condition").show()
+            return
+        }else
+        {
+        AddbookApi(Image: strGallaryImages)
         }
     }
     func getAssetThumbnail(asset: PHAsset) -> UIImage {
@@ -166,5 +230,29 @@ class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollec
         })
         return retimage
     }
-   
+    func AddbookApi(Image:String) {
+        ActivityView.showActivityIndicator()
+        let defaults = UserDefaults.standard
+        let userid = defaults.value(forKey: "UserDeail")
+        UserLoginService().Addbook(userid: userid as! String, Name: txt_title.text!, Image: Image, Author: txtAuther.text!, Publisher: txtPublisher.text!, Edition: Edition.text!, ListPrice: txtPrice.text!, Negotiable: txtNegotiable.text!, Description: txtDescription.text!, Condition: txtCondition.text!)
+        { (response, error) -> () in
+            ActivityView.hideActivityIndicator()
+            if let err = error {
+                Toast.makeText(err.localizedDescription).show()
+            }else{
+               print(response)
+                
+            }
+        }
+    }
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
 }

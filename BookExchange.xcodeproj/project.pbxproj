@@ -47,6 +47,15 @@
 		036A65C4206BFF240018D151 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A65C3206BFF240018D151 /* AddBookViewController.swift */; };
 		036A65C6206BFF350018D151 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036A65C5206BFF350018D151 /* ProfileViewController.swift */; };
 		036A65C8206C003B0018D151 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 036A65C7206C003B0018D151 /* logout.png */; };
+		4665767C2090C4710048F273 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466576722090C4710048F273 /* DPDConstants.swift */; };
+		4665767D2090C4710048F273 /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466576732090C4710048F273 /* DPDKeyboardListener.swift */; };
+		4665767E2090C4710048F273 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466576742090C4710048F273 /* DPDUIView+Extension.swift */; };
+		4665767F2090C4710048F273 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 466576752090C4710048F273 /* Info.plist */; };
+		466576802090C4710048F273 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 466576772090C4710048F273 /* DropDownCell.xib */; };
+		466576812090C4710048F273 /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466576792090C4710048F273 /* DropDown+Appearance.swift */; };
+		466576822090C4710048F273 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4665767A2090C4710048F273 /* DropDown.swift */; };
+		466576832090C4710048F273 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4665767B2090C4710048F273 /* DropDownCell.swift */; };
+		466576852090CD400048F273 /* book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466576842090CD400048F273 /* book.swift */; };
 		522388082066F68D00008F6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522388072066F68D00008F6B /* AppDelegate.swift */; };
 		5223880A2066F68D00008F6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522388092066F68D00008F6B /* ViewController.swift */; };
 		5223880D2066F68D00008F6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5223880B2066F68D00008F6B /* Main.storyboard */; };
@@ -112,6 +121,16 @@
 		036A65C5206BFF350018D151 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		036A65C7206C003B0018D151 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 		3E8295BD5D32F61BB689F037 /* Pods_BookExchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookExchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		466576702090C4710048F273 /* DropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDown.h; sourceTree = "<group>"; };
+		466576722090C4710048F273 /* DPDConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDConstants.swift; sourceTree = "<group>"; };
+		466576732090C4710048F273 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDKeyboardListener.swift; sourceTree = "<group>"; };
+		466576742090C4710048F273 /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DPDUIView+Extension.swift"; sourceTree = "<group>"; };
+		466576752090C4710048F273 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		466576772090C4710048F273 /* DropDownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
+		466576792090C4710048F273 /* DropDown+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DropDown+Appearance.swift"; sourceTree = "<group>"; };
+		4665767A2090C4710048F273 /* DropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
+		4665767B2090C4710048F273 /* DropDownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
+		466576842090CD400048F273 /* book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = book.swift; sourceTree = "<group>"; };
 		500628E312B9CD5A8C04F00E /* Pods-BookExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookExchange.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookExchange/Pods-BookExchange.release.xcconfig"; sourceTree = "<group>"; };
 		522388042066F68D00008F6B /* BookExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		522388072066F68D00008F6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +157,7 @@
 		0358C522206FF76F007A2BC2 /* ReSource */ = {
 			isa = PBXGroup;
 			children = (
+				4665766F2090C4710048F273 /* DropDown */,
 				0358C529206FF7CC007A2BC2 /* IQKeyboardManager */,
 			);
 			name = ReSource;
@@ -233,6 +253,7 @@
 		0361C618206E9811001E928E /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				466576842090CD400048F273 /* book.swift */,
 				033430C32079E9E7008BF8CA /* BorderedButton.swift */,
 				0358C502206FABE5007A2BC2 /* ActivityView.swift */,
 			);
@@ -282,6 +303,46 @@
 				036A65C5206BFF350018D151 /* ProfileViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		4665766F2090C4710048F273 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				466576702090C4710048F273 /* DropDown.h */,
+				466576712090C4710048F273 /* helpers */,
+				466576752090C4710048F273 /* Info.plist */,
+				466576762090C4710048F273 /* resources */,
+				466576782090C4710048F273 /* src */,
+			);
+			path = DropDown;
+			sourceTree = "<group>";
+		};
+		466576712090C4710048F273 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				466576722090C4710048F273 /* DPDConstants.swift */,
+				466576732090C4710048F273 /* DPDKeyboardListener.swift */,
+				466576742090C4710048F273 /* DPDUIView+Extension.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		466576762090C4710048F273 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				466576772090C4710048F273 /* DropDownCell.xib */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		466576782090C4710048F273 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				466576792090C4710048F273 /* DropDown+Appearance.swift */,
+				4665767A2090C4710048F273 /* DropDown.swift */,
+				4665767B2090C4710048F273 /* DropDownCell.swift */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		522387FB2066F68D00008F6B = {
@@ -404,6 +465,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				466576802090C4710048F273 /* DropDownCell.xib in Resources */,
+				4665767F2090C4710048F273 /* Info.plist in Resources */,
 				036A65B9206BF7C50018D151 /* web-page-home.png in Resources */,
 				036A65BD206BF98B0018D151 /* icon.png in Resources */,
 				0358C521206FEEFC007A2BC2 /* ListCollectionViewCell.xib in Resources */,
@@ -498,7 +561,10 @@
 				0358C54E206FF7CC007A2BC2 /* IQUITextFieldView+Additions.m in Sources */,
 				0358C553206FF7CC007A2BC2 /* IQTextView.m in Sources */,
 				0358C503206FABE6007A2BC2 /* ActivityView.swift in Sources */,
+				4665767D2090C4710048F273 /* DPDKeyboardListener.swift in Sources */,
+				466576852090CD400048F273 /* book.swift in Sources */,
 				0358C54D206FF7CC007A2BC2 /* IQUIScrollView+Additions.m in Sources */,
+				466576822090C4710048F273 /* DropDown.swift in Sources */,
 				0358C505206FAC0F007A2BC2 /* Toast.swift in Sources */,
 				0358C551206FF7CC007A2BC2 /* IQKeyboardManager.m in Sources */,
 				0358C554206FF7CC007A2BC2 /* IQBarButtonItem.m in Sources */,
@@ -509,15 +575,19 @@
 				0358C50B206FB214007A2BC2 /* Types.swift in Sources */,
 				0358C54C206FF7CC007A2BC2 /* IQNSArray+Sort.m in Sources */,
 				0358C556206FF7CC007A2BC2 /* IQTitleBarButtonItem.m in Sources */,
+				4665767E2090C4710048F273 /* DPDUIView+Extension.swift in Sources */,
 				036A65C2206BFF120018D151 /* HomeViewController.swift in Sources */,
 				036A65C4206BFF240018D151 /* AddBookViewController.swift in Sources */,
 				036A65BF206BFB5A0018D151 /* tabViewController.swift in Sources */,
 				0358C558206FF7CC007A2BC2 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				0315DF3D206AB9BB00412AB9 /* SignUpViewController.swift in Sources */,
+				466576832090C4710048F273 /* DropDownCell.swift in Sources */,
 				036A65C6206BFF350018D151 /* ProfileViewController.swift in Sources */,
 				033430C42079E9E7008BF8CA /* BorderedButton.swift in Sources */,
 				0358C508206FAD59007A2BC2 /* ToastView.swift in Sources */,
 				0358C520206FEEFC007A2BC2 /* ListCollectionViewCell.swift in Sources */,
+				4665767C2090C4710048F273 /* DPDConstants.swift in Sources */,
+				466576812090C4710048F273 /* DropDown+Appearance.swift in Sources */,
 				5223880A2066F68D00008F6B /* ViewController.swift in Sources */,
 				0358C550206FF7CC007A2BC2 /* IQUIViewController+Additions.m in Sources */,
 				0358C557206FF7CC007A2BC2 /* IQToolbar.m in Sources */,

@@ -35,6 +35,17 @@ class UserLoginService: NSObject, HTTPProtocol {
         print(bodyParams)
         executeWebService(method: .post, URLString: WebAPI.UpdateProfile, parameters: bodyParams as [String : AnyObject]?, encoding: JSONEncoding.default, headers: nil, completion: completion)
     }
-    
+    func Addbook(userid: String, Name: String, Image: String , Author: String, Publisher
+: String, Edition: String, ListPrice: String, Negotiable: String, Description: String, Condition: String, completion:  @escaping (_ response:AnyObject?, _ error: NSError?) -> ()) ->Void {
+        let bodyParams = ["UserId":userid,"Name":Name,"Image" : Image, "Author":Author, "Publisher":Publisher, "Edition":Edition, "ListPrice":ListPrice, "Negotiable":Negotiable, "Description":Description, "Condition":Condition]
+        print(WebAPI.SingUpUrl)
+        print(bodyParams)
+        executeWebService(method: .post, URLString: WebAPI.UpdateProfile, parameters: bodyParams as [String : AnyObject]?, encoding: JSONEncoding.default, headers: nil, completion: completion)
+    }
+    func Search(Key: String, Value: String, completion:  @escaping (_ response:AnyObject?, _ error: NSError?) -> ()) ->Void {
+        let bodyParams = [Key:Value]
+        executeWebService(method: .post, URLString: WebAPI.Search, parameters: bodyParams as [String : AnyObject]?, encoding: JSONEncoding.default, headers: nil, completion: completion)
+    }
 }
+
 

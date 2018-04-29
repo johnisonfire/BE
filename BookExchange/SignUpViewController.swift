@@ -96,22 +96,28 @@ let msgServerError = NSLocalizedString("Server_Error", comment: "Identifies serv
             if let err = error {
                 Toast.makeText(err.localizedDescription).show()
             }else{
-                //print(response)
-                if (response as? String)!.lowercased().range(of:"{") != nil {
-                    let responseObject = (convertToDictionary(text: (response as? String)!))!
-                    Toast.makeText(responseObject["Error"]! as! String).show()
-                }else if let responseObject = response as? String
-                {
-                    let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appdelegate.setLoginStatus(LoggedInStatus.UserLoggedIn)
-                    let defaults = UserDefaults.standard
-                    defaults.set(responseObject, forKey: "UserDeail")
-                    let userStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                    let homeViewController = userStoryboard.instantiateViewController(withIdentifier: "LoginTabbar")
-                    appdelegate.setRootViewController(homeViewController)
-                }else{
-                    Toast.makeText(self.msgServerError).show()
-                }
+                print(response)
+                if let responseObject = (convertToDictionary(text: (response! as? String)!)) {
+                        let status = responseObject.unwrappedValueForKey("Status", type: Int.self, defaultValue: 0)
+                        if status == 1 {
+                            let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appdelegate.setLoginStatus(LoggedInStatus.UserLoggedIn)
+                let defaults = UserDefaults.standard
+                defaults.set(responseObject, forKey: "UserDeail")
+                let userStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let homeViewController = userStoryboard.instantiateViewController(withIdentifier: "LoginTabbar")
+                appdelegate.setRootViewController(homeViewController)
+                        }
+                        else {
+                            let responseObject = (convertToDictionary(text: (response as? String)!))!
+                                              Toast.makeText(responseObject["Error"]! as! String).show()
+                        }
+                    }
+                    else{
+                        let responseObject = (convertToDictionary(text: (response as? String)!))!
+                        Toast.makeText(responseObject["Error"]! as! String).show()
+                    }
+
             }
         }
     }

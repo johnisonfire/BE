@@ -56,6 +56,7 @@
 		466576822090C4710048F273 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4665767A2090C4710048F273 /* DropDown.swift */; };
 		466576832090C4710048F273 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4665767B2090C4710048F273 /* DropDownCell.swift */; };
 		466576852090CD400048F273 /* book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466576842090CD400048F273 /* book.swift */; };
+		4669C0832094C06A00906694 /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4669C0822094C06900906694 /* picture.png */; };
 		522388082066F68D00008F6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522388072066F68D00008F6B /* AppDelegate.swift */; };
 		5223880A2066F68D00008F6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522388092066F68D00008F6B /* ViewController.swift */; };
 		5223880D2066F68D00008F6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5223880B2066F68D00008F6B /* Main.storyboard */; };
@@ -131,6 +132,7 @@
 		4665767A2090C4710048F273 /* DropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		4665767B2090C4710048F273 /* DropDownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
 		466576842090CD400048F273 /* book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = book.swift; sourceTree = "<group>"; };
+		4669C0822094C06900906694 /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
 		500628E312B9CD5A8C04F00E /* Pods-BookExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookExchange.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookExchange/Pods-BookExchange.release.xcconfig"; sourceTree = "<group>"; };
 		522388042066F68D00008F6B /* BookExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		522388072066F68D00008F6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				5223880B2066F68D00008F6B /* Main.storyboard */,
 				5223880E2066F68D00008F6B /* Assets.xcassets */,
 				522388102066F68D00008F6B /* LaunchScreen.storyboard */,
+				4669C0822094C06900906694 /* picture.png */,
 				0315DF3E206ABA7400412AB9 /* left-arrow.png */,
 				036A65BC206BF98A0018D151 /* icon.png */,
 				036A65B8206BF7C40018D151 /* web-page-home.png */,
@@ -473,6 +476,7 @@
 				033430C82079F365008BF8CA /* add.png in Resources */,
 				033430C62079EB98008BF8CA /* user (2).png in Resources */,
 				0358C519206FCF45007A2BC2 /* logout (1).png in Resources */,
+				4669C0832094C06A00906694 /* picture.png in Resources */,
 				0315DF3F206ABA7400412AB9 /* left-arrow.png in Resources */,
 				522388122066F68D00008F6B /* LaunchScreen.storyboard in Resources */,
 				036A65BB206BF92C0018D151 /* plus-button.png in Resources */,
@@ -733,12 +737,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WKMZQKB8GE;
 				INFOPLIST_FILE = BookExchange/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = john.practice.BookExchange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MNC2.john.practice.BookExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "20bb1a2a-7c65-4404-ad71-a44e1417452a";
+				PROVISIONING_PROFILE_SPECIFIER = "global dev";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -750,12 +755,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WKMZQKB8GE;
 				INFOPLIST_FILE = BookExchange/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = john.practice.BookExchange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MNC2.john.practice.BookExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "20bb1a2a-7c65-4404-ad71-a44e1417452a";
+				PROVISIONING_PROFILE_SPECIFIER = "global dev";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

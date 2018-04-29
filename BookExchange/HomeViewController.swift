@@ -48,6 +48,14 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.data.count <= 0 && collectionView.backgroundView == nil {
+            let noItemLabel = UILabel() //no need to set frame.
+            noItemLabel.textAlignment = .center
+            noItemLabel.textColor = .lightGray
+            noItemLabel.text = NSLocalizedString("No Book Found", comment: "No posts message")
+            collectionView.backgroundView = noItemLabel
+        }
+        collectionView.backgroundView?.isHidden = self.data.count > 0
         return self.data.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,7 +73,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 let url = URL(string: urlString) {
                 cell.cellImage.sd_setShowActivityIndicatorView(true)
                 cell.cellImage.sd_setIndicatorStyle(UIActivityIndicatorViewStyle.gray)
-                cell.cellImage.sd_setImageWithPreviousCachedImage(with: url, placeholderImage: UIImage(named: "Z"), options:[.continueInBackground], progress: nil, completed: { (image, error, cachetype, url) in
+                cell.cellImage.sd_setImageWithPreviousCachedImage(with: url, placeholderImage: UIImage(named: "picture.png"), options:[.continueInBackground], progress: nil, completed: { (image, error, cachetype, url) in
                 })
             }
         }

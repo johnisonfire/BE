@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet var txtPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,6 +62,11 @@ class ProfileViewController: UIViewController {
         {
            Toast.makeText("Enter Phone Number").show()
          return
+        }
+        else if txtPassword.text == ""
+        {
+            Toast.makeText("Enter Password").show()
+            return
         }else
         {
           self.profileupdateApi()
@@ -97,8 +103,9 @@ class ProfileViewController: UIViewController {
     func profileupdateApi() {
         ActivityView.showActivityIndicator()
         let defaults = UserDefaults.standard
-        let userid = defaults.value(forKey: "UserDeail")
-        UserLoginService().ProfileEdit(userName: userid as! String, FirstName: txtFirstName.text!, LastName: txtLastName.text!, password: "qwerty123", PhoneNumber: txtPhoneNumber.text!, EmailAddress: txtEmail.text!) { (response, error) -> () in
+        let userid = defaults.value(forKey: "UserDeail") as! [NSString:Any]
+        
+        UserLoginService().ProfileEdit(userName: (userid["Data"] as! [NSString : Any])["UserId"] as! String, FirstName: txtFirstName.text!, LastName: txtLastName.text!, password: txtPassword.text!, PhoneNumber: txtPhoneNumber.text!, EmailAddress: txtEmail.text!) { (response, error) -> () in
             ActivityView.hideActivityIndicator()
             if let err = error {
                 Toast.makeText(err.localizedDescription).show()

@@ -172,9 +172,10 @@ class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollec
                 let imageData = UIImagePNGRepresentation(Gimage)!
                 let dataStr = imageData.base64EncodedString(options: .endLineWithLineFeed) as String
                 arrPhotos.add(dataStr)
-                print(dataStr)
             }
             strGallaryImages = self.arrPhotos.componentsJoined(by: ",")
+            
+            print(arrPhotos)
         }else
         {
             strGallaryImages = ""
@@ -233,15 +234,16 @@ class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollec
     func AddbookApi(Image:String) {
         ActivityView.showActivityIndicator()
         let defaults = UserDefaults.standard
-        let userid = defaults.value(forKey: "UserDeail")
-        UserLoginService().Addbook(userid: userid as! String, Name: txt_title.text!, Image: Image, Author: txtAuther.text!, Publisher: txtPublisher.text!, Edition: Edition.text!, ListPrice: txtPrice.text!, Negotiable: txtNegotiable.text!, Description: txtDescription.text!, Condition: txtCondition.text!)
+        
+        let userid = defaults.value(forKey: "UserDeail") as! [NSString:Any]
+        UserLoginService().Addbook(userid: (userid["Data"] as! [NSString : Any])["UserId"] as! String, Name: txt_title.text!, Image: arrPhotos, Author: txtAuther.text!, Publisher: txtPublisher.text!, Edition: Edition.text!, ListPrice: txtPrice.text!, Negotiable: txtNegotiable.text!, Description: txtDescription.text!, Condition: txtCondition.text!)
         { (response, error) -> () in
             ActivityView.hideActivityIndicator()
             if let err = error {
                 Toast.makeText(err.localizedDescription).show()
             }else{
-               print(response)
-                
+                print((self.convertToDictionary(text: response! as! String))!)
+
             }
         }
     }

@@ -381,7 +381,7 @@
                                         <rect key="frame" x="8" y="165" width="359" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publisher" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJD-3G-ZXY">
                                         <rect key="frame" x="8" y="210" width="359" height="30"/>
@@ -402,7 +402,7 @@
                                         <rect key="frame" x="8" y="300" width="359" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zsR-Dn-J0a">
                                         <rect key="frame" x="8" y="345" width="359" height="30"/>
@@ -495,7 +495,7 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="tFq-ao-Xy6" customClass="ProfileViewController" customModule="BookExchange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mqe-nS-8cg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="541"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="591"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uf3-TZ-OEP">
@@ -532,7 +532,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAH-3J-EZG">
-                                <rect key="frame" x="0.0" y="64" width="320" height="477"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="527"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bw4-0a-I1H" customClass="BorderedButton" customModule="BookExchange" customModuleProvider="target">
                                         <rect key="frame" x="105" y="8" width="110" height="110"/>
@@ -624,8 +624,26 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGZ-34-kUV">
+                                        <rect key="frame" x="15" y="402" width="66" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="a4p-M3-meR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvM-Wr-PbA">
+                                        <rect key="frame" x="15" y="431" width="290" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="cao-Ev-XKu"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" secureTextEntry="YES"/>
+                                    </textField>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uph-Kc-wUx" customClass="BorderedButton" customModule="BookExchange" customModuleProvider="target">
-                                        <rect key="frame" x="54" y="418" width="209" height="38"/>
+                                        <rect key="frame" x="54" y="477" width="209" height="38"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="abI-Ec-llt"/>
@@ -649,12 +667,13 @@
                                     <constraint firstItem="TO4-qP-Vh2" firstAttribute="centerX" secondItem="PAH-3J-EZG" secondAttribute="centerX" id="7go-6Z-0af"/>
                                     <constraint firstItem="3gh-1Q-qc5" firstAttribute="top" secondItem="PcT-DT-NEc" secondAttribute="bottom" constant="8" id="8HB-DS-fGc"/>
                                     <constraint firstItem="uph-Kc-wUx" firstAttribute="leading" secondItem="PAH-3J-EZG" secondAttribute="leading" constant="54" id="8sP-2O-MdS"/>
-                                    <constraint firstItem="uph-Kc-wUx" firstAttribute="top" secondItem="Box-sT-uIK" secondAttribute="bottom" constant="24" id="Bxq-0g-lxK"/>
                                     <constraint firstItem="3Wa-Hb-ta7" firstAttribute="leading" secondItem="70W-Tr-lNj" secondAttribute="leading" id="C16-hx-U4g"/>
+                                    <constraint firstAttribute="trailing" secondItem="dvM-Wr-PbA" secondAttribute="trailing" constant="15" id="Ffg-y2-iWR"/>
                                     <constraint firstItem="Box-sT-uIK" firstAttribute="top" secondItem="3Wa-Hb-ta7" secondAttribute="bottom" constant="8" id="IHn-p8-lKi"/>
                                     <constraint firstItem="bw4-0a-I1H" firstAttribute="centerX" secondItem="PAH-3J-EZG" secondAttribute="centerX" id="Lc2-Dk-rSE"/>
                                     <constraint firstAttribute="trailing" secondItem="uph-Kc-wUx" secondAttribute="trailing" constant="57" id="MUU-BE-PVb"/>
                                     <constraint firstItem="PcT-DT-NEc" firstAttribute="leading" secondItem="PAH-3J-EZG" secondAttribute="leading" constant="15" id="Qzk-Gk-oFn"/>
+                                    <constraint firstItem="PGZ-34-kUV" firstAttribute="leading" secondItem="Box-sT-uIK" secondAttribute="leading" id="RbM-vj-ydn"/>
                                     <constraint firstItem="1MP-LC-HM4" firstAttribute="top" secondItem="3gh-1Q-qc5" secondAttribute="bottom" constant="8" id="SrB-3y-oGb"/>
                                     <constraint firstAttribute="trailing" secondItem="3gh-1Q-qc5" secondAttribute="trailing" constant="16" id="TH1-xR-flh"/>
                                     <constraint firstItem="70W-Tr-lNj" firstAttribute="top" secondItem="1MP-LC-HM4" secondAttribute="bottom" constant="8" id="Vpg-Qu-CJP"/>
@@ -662,17 +681,21 @@
                                     <constraint firstAttribute="trailing" secondItem="tAb-Xf-wSp" secondAttribute="trailing" constant="16" id="ZeM-iU-OFe"/>
                                     <constraint firstAttribute="bottom" secondItem="uph-Kc-wUx" secondAttribute="bottom" constant="21" id="aKX-RE-le6"/>
                                     <constraint firstAttribute="trailing" secondItem="EYZ-S7-TmB" secondAttribute="trailing" constant="233.5" id="c20-zc-5BS"/>
+                                    <constraint firstItem="PGZ-34-kUV" firstAttribute="top" secondItem="Box-sT-uIK" secondAttribute="bottom" constant="8" id="cFc-yp-WGw"/>
                                     <constraint firstItem="bw4-0a-I1H" firstAttribute="top" secondItem="PAH-3J-EZG" secondAttribute="top" constant="8" id="cUU-WD-QNg"/>
                                     <constraint firstAttribute="trailing" secondItem="70W-Tr-lNj" secondAttribute="trailing" constant="16" id="eft-L4-1lf"/>
                                     <constraint firstItem="70W-Tr-lNj" firstAttribute="leading" secondItem="1MP-LC-HM4" secondAttribute="leading" id="jsr-jA-9fJ"/>
                                     <constraint firstAttribute="trailing" secondItem="Box-sT-uIK" secondAttribute="trailing" constant="16" id="k6I-2d-Hrs"/>
                                     <constraint firstItem="EYZ-S7-TmB" firstAttribute="leading" secondItem="PAH-3J-EZG" secondAttribute="leading" constant="15" id="lmN-eh-hs6"/>
                                     <constraint firstItem="PcT-DT-NEc" firstAttribute="top" secondItem="tAb-Xf-wSp" secondAttribute="bottom" constant="9" id="oMk-dI-Kez"/>
+                                    <constraint firstItem="dvM-Wr-PbA" firstAttribute="leading" secondItem="PGZ-34-kUV" secondAttribute="leading" id="oRE-gZ-F0q"/>
                                     <constraint firstItem="3gh-1Q-qc5" firstAttribute="leading" secondItem="PcT-DT-NEc" secondAttribute="leading" constant="-1" id="ptR-qu-BnB"/>
                                     <constraint firstItem="tAb-Xf-wSp" firstAttribute="top" secondItem="EYZ-S7-TmB" secondAttribute="bottom" constant="8" id="rH2-8f-Ntc"/>
+                                    <constraint firstItem="dvM-Wr-PbA" firstAttribute="top" secondItem="PGZ-34-kUV" secondAttribute="bottom" constant="8" id="rfA-5O-NMr"/>
                                     <constraint firstItem="3gh-1Q-qc5" firstAttribute="centerX" secondItem="TO4-qP-Vh2" secondAttribute="centerX" constant="-1" id="sGK-Gh-Sf0"/>
                                     <constraint firstItem="1MP-LC-HM4" firstAttribute="leading" secondItem="PAH-3J-EZG" secondAttribute="leading" constant="15" id="x1h-eL-5oy"/>
                                     <constraint firstItem="3gh-1Q-qc5" firstAttribute="centerX" secondItem="tAb-Xf-wSp" secondAttribute="centerX" id="x8K-E2-euv"/>
+                                    <constraint firstItem="uph-Kc-wUx" firstAttribute="top" secondItem="dvM-Wr-PbA" secondAttribute="bottom" constant="16" id="xHY-Cm-Nm9"/>
                                     <constraint firstItem="EYZ-S7-TmB" firstAttribute="top" secondItem="bw4-0a-I1H" secondAttribute="bottom" constant="15" id="y0V-hQ-FvP"/>
                                 </constraints>
                             </scrollView>
@@ -691,11 +714,12 @@
                         <viewLayoutGuide key="safeArea" id="AdA-Cl-tYd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="yrA-SA-zYe"/>
-                    <size key="freeformSize" width="320" height="590"/>
+                    <size key="freeformSize" width="320" height="640"/>
                     <connections>
                         <outlet property="txtEmail" destination="Box-sT-uIK" id="rVM-yq-0Be"/>
                         <outlet property="txtFirstName" destination="tAb-Xf-wSp" id="E9t-bG-3IC"/>
                         <outlet property="txtLastName" destination="3gh-1Q-qc5" id="2u5-pV-aj8"/>
+                        <outlet property="txtPassword" destination="dvM-Wr-PbA" id="q6X-CR-ot8"/>
                         <outlet property="txtPhoneNumber" destination="70W-Tr-lNj" id="njQ-TT-YWc"/>
                     </connections>
                 </viewController>

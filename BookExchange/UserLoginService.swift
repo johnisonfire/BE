@@ -35,13 +35,11 @@ class UserLoginService: NSObject, HTTPProtocol {
         print(bodyParams)
         executeWebService(method: .post, URLString: WebAPI.UpdateProfile, parameters: bodyParams as [String : AnyObject]?, encoding: JSONEncoding.default, headers: nil, completion: completion)
     }
-    func Addbook(userid: String, Name: String, Image: NSMutableArray, Author: String, Publisher
-: String, Edition: String, ListPrice: String, Negotiable: String, Description: String, Condition: String, completion:  @escaping (_ response:AnyObject?, _ error: NSError?) -> ()) ->Void {
-        print(Image)
-        let bodyParams = ["UserId":userid,"Name":Name,"Image" : Image, "Author":Author, "Publisher":Publisher, "Edition":Edition, "ListPrice":ListPrice, "Negotiable":Negotiable, "Description":Description, "Condition":Condition] as [String : Any]
+    func Addbook(data: [String : Any], completion:  @escaping (_ response:AnyObject?, _ error: NSError?) -> ()) ->Void {
+        
         print(WebAPI.NewListing)
-        print(bodyParams)
-        executeWebService(method: .post, URLString: WebAPI.NewListing, parameters: bodyParams as [String : AnyObject]?, encoding: JSONEncoding.default, headers: nil, completion: completion)
+        print(data)
+        executeWebService(method: .post, URLString: WebAPI.NewListing, parameters: data as [String : AnyObject] as [String : AnyObject], encoding: JSONEncoding.default, headers: nil, completion: completion)
     }
     func Search(Key: String, Value: String, completion:  @escaping (_ response:AnyObject?, _ error: NSError?) -> ()) ->Void {
         let bodyParams = [Key:Value]

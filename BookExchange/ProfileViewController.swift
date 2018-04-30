@@ -69,7 +69,7 @@ class ProfileViewController: UIViewController {
             return
         }else
         {
-          self.profileupdateApi()
+          profileupdateApi()
         }
         
        
@@ -86,6 +86,7 @@ class ProfileViewController: UIViewController {
             alertController.dismiss(animated: true, completion: nil)
             let defaults = UserDefaults.standard
             defaults.removeObject(forKey: "UserDeail")
+            defaults.removeObject(forKey: "loginType")
             let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
             appdelegate.setLoginStatus(LoggedInStatus.LoggedOut)
             let userStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -103,9 +104,22 @@ class ProfileViewController: UIViewController {
     func profileupdateApi() {
         ActivityView.showActivityIndicator()
         let defaults = UserDefaults.standard
-        let userid = defaults.value(forKey: "UserDeail") as! [NSString:Any]
+       
+       
+        let type = defaults.value(forKey: "loginType") as! String
+        var userrid = ""
+        if type == "login"
+        {
+            let userid = defaults.value(forKey: "UserDeail") as! String
+            userrid = userid
+        }else
+        {
+            let userid = defaults.value(forKey: "UserDeail") as! [NSString:Any]
+            userrid = (userid["Data"] as! [NSString : Any])["UserId"] as! String
+        }
+        print(userrid)
         
-        UserLoginService().ProfileEdit(userName: (userid["Data"] as! [NSString : Any])["UserId"] as! String, FirstName: txtFirstName.text!, LastName: txtLastName.text!, password: txtPassword.text!, PhoneNumber: txtPhoneNumber.text!, EmailAddress: txtEmail.text!) { (response, error) -> () in
+        UserLoginService().ProfileEdit(userName: userrid, FirstName: txtFirstName.text!, LastName: txtLastName.text!, password: txtPassword.text!, PhoneNumber: txtPhoneNumber.text!, EmailAddress: txtEmail.text!) { (response, error) -> () in
             ActivityView.hideActivityIndicator()
             if let err = error {
                 Toast.makeText(err.localizedDescription).show()
@@ -113,12 +127,13 @@ class ProfileViewController: UIViewController {
                 //print(response)
                 if let responseObject = (self.convertToDictionary(text: (response as? String)!))! as? [String : Any]
                 {
-                    if Int(responseObject["Status"]! as! String) == 1
+                    if responseObject["Status"]! as! Int == 1
                     {
-                     self.txtFirstName.text = ""
+                        self.txtFirstName.text = ""
                         self.txtLastName.text = ""
                         self.txtPhoneNumber.text = ""
                         self.txtEmail.text = ""
+                        self.txtPassword.text = ""
                         let alertController = UIAlertController(title: "Alert", message: "Profile Update Sucessfully!", preferredStyle: UIAlertControllerStyle.alert)
                         
                         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)

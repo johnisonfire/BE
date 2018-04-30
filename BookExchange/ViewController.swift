@@ -56,6 +56,7 @@ class ViewController: UIViewController {
                     appdelegate.setLoginStatus(LoggedInStatus.UserLoggedIn)
                     let defaults = UserDefaults.standard
                     defaults.set(responseObject["UserId"]! as! String, forKey: "UserDeail")
+                    defaults.set("login", forKey: "loginType")
                     let userStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let homeViewController = userStoryboard.instantiateViewController(withIdentifier: "LoginTabbar")
                     appdelegate.setRootViewController(homeViewController)

@@ -104,6 +104,7 @@ let msgServerError = NSLocalizedString("Server_Error", comment: "Identifies serv
                         appdelegate.setLoginStatus(LoggedInStatus.UserLoggedIn)
                 let defaults = UserDefaults.standard
                 defaults.set(responseObject, forKey: "UserDeail")
+                defaults.set("register", forKey: "loginType")
                 let userStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                 let homeViewController = userStoryboard.instantiateViewController(withIdentifier: "LoginTabbar")
                 appdelegate.setRootViewController(homeViewController)

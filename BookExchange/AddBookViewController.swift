@@ -50,7 +50,8 @@ class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollec
     @IBOutlet var txtDescription: UITextField!
     @IBOutlet var txtCondition: UITextField!
     var imagearry : [AnyObject] = []
-    var arrPhotos = NSMutableArray()
+      var arrPhotos = [String]()
+  //  var arrPhotos = NSMutableArray()
     override func viewDidLoad() {
         super.viewDidLoad()
    
@@ -165,15 +166,15 @@ class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollec
     }
     
     @IBAction func btnPost(_ sender: Any) {
-        var strGallaryImages = ""
+       var strGallaryImages = ""
         if imagearry.count > 0{
             for i in 0...self.imagearry.count - 1 {
                 let Gimage  = (self.imagearry[i] as! UIImage)
                 let imageData = UIImagePNGRepresentation(Gimage)!
                 let dataStr = imageData.base64EncodedString(options: .endLineWithLineFeed) as String
-                arrPhotos.add(dataStr)
+                arrPhotos.append(dataStr)
             }
-            strGallaryImages = self.arrPhotos.componentsJoined(by: ",")
+            //strGallaryImages = self.arrPhotos.componentsJoined(by: ",")
             
             print(arrPhotos)
         }else
@@ -235,15 +236,85 @@ class AddBookViewController: UIViewController,UICollectionViewDelegate, UICollec
         ActivityView.showActivityIndicator()
         let defaults = UserDefaults.standard
         
-        let userid = defaults.value(forKey: "UserDeail") as! [NSString:Any]
-        UserLoginService().Addbook(userid: (userid["Data"] as! [NSString : Any])["UserId"] as! String, Name: txt_title.text!, Image: arrPhotos, Author: txtAuther.text!, Publisher: txtPublisher.text!, Edition: Edition.text!, ListPrice: txtPrice.text!, Negotiable: txtNegotiable.text!, Description: txtDescription.text!, Condition: txtCondition.text!)
+  
+        let type = defaults.value(forKey: "loginType") as! String
+        var userrid = ""
+        if type == "login"
+        {
+            let userid = defaults.value(forKey: "UserDeail") as! String
+            userrid = userid
+        }else
+        {
+            let userid = defaults.value(forKey: "UserDeail") as! [NSString:Any]
+            userrid = (userid["Data"] as! [NSString : Any])["UserId"] as! String
+        }
+        print(userrid)
+        
+        let dict = ["UserId" : userrid,
+                   "Name" : txt_title.text!,
+            
+            "ISBN" : txtISBN.text!,
+            
+            "Images" : arrPhotos,
+            
+            "Author" : txtAuther.text!,
+            
+            "Publisher" : txtPublisher.text!,
+            
+            "Edition" : Edition.text!,
+            
+            "ListPrice" : txtPrice.text!,
+            
+            "Negotiable" : txtNegotiable.text!,
+            
+            "Description" : txtDescription.text!,
+            
+            "Condition" : txtCondition.text!
+            ] as [String : Any]
+        
+        UserLoginService().Addbook(data: dict)
         { (response, error) -> () in
             ActivityView.hideActivityIndicator()
             if let err = error {
                 Toast.makeText(err.localizedDescription).show()
             }else{
-                print((self.convertToDictionary(text: response! as! String))!)
-
+                if let responseObject = (self.convertToDictionary(text: (response as? String)!))! as? [String : Any]
+                    
+                {
+                 self.imagearry = []
+                    self.collectionSelectImage.reloadData()
+                    self.txtISBN.text = ""
+            
+                    
+                    self.txtAuther.text = ""
+                    
+                    self.txtPublisher.text = ""
+                    
+                    self.Edition.text! = ""
+                    
+                    self.txtPrice.text = ""
+                    
+                    self.txtNegotiable.text = ""
+                    
+                  self.txtDescription.text = ""
+                    
+                self.txtCondition.text = ""
+                    let alertController = UIAlertController(title: "Book Uploaded", message: "Book uploaded sucessfully", preferredStyle: UIAlertControllerStyle.alert) //Replace
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                        (result : UIAlertAction) -> Void in
+                        print("OK")}
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                }else
+                {
+                    let alertController = UIAlertController(title: "Book Upload Fail", message: "Book uploaded sucessfully", preferredStyle: UIAlertControllerStyle.alert) //Replace
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                        (result : UIAlertAction) -> Void in
+                        print("OK")}
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
         }
     }
